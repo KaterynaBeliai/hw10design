@@ -1,0 +1,125 @@
+part1 compile: PASS
+Note: outputs/HashTablesMinimal/src/part1/SeparateChainingHashST.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+=== SeparateChainingHashST ===
+PASS: new table is empty
+PASS: missing key
+INSERT 7 -> home bucket 7
+size=1, capacity=8
+  bucket 0: null
+  bucket 1: null
+  bucket 2: null
+  bucket 3: null
+  bucket 4: null
+  bucket 5: null
+  bucket 6: null
+  bucket 7: 7=v7 -> null
+INSERT 15 -> home bucket 7
+size=2, capacity=8
+  bucket 0: null
+  bucket 1: null
+  bucket 2: null
+  bucket 3: null
+  bucket 4: null
+  bucket 5: null
+  bucket 6: null
+  bucket 7: 15=v15 -> 7=v7 -> null
+INSERT 23 -> home bucket 7
+size=3, capacity=8
+  bucket 0: null
+  bucket 1: null
+  bucket 2: null
+  bucket 3: null
+  bucket 4: null
+  bucket 5: null
+  bucket 6: null
+  bucket 7: 23=v23 -> 15=v15 -> 7=v7 -> null
+PASS: colliding keys remain retrievable
+PASS: all three keys share one chain
+PASS: duplicate key updates value without adding a key
+size=2, capacity=4
+  bucket 0: null
+  bucket 1: null
+  bucket 2: null
+  bucket 3: 7=v7 -> 23=v23 -> null
+PASS: delete middle collision; other keys survive
+PASS: delete missing key is harmless
+PASS: null value deletes key
+PASS: delete final key
+PASS: negative hash codes including MIN_VALUE
+PASS: put rejects null key
+PASS: get rejects null key
+PASS: delete rejects null key
+PASS: contains rejects null key
+PASS: distinct strings with identical hashCode; equality by equals
+PASS: growth rehash: capacity=16
+PASS: all 100 values survive growth
+PASS: shrink rehash preserves remaining values
+PASS: keys iteration after deletion
+ALL 19 CHECKS PASSED
+
+part2 compile: PASS
+Note: outputs/HashTablesMinimal/src/part2/LinearProbingHashST.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+=== LinearProbingHashST ===
+PASS: new table is empty
+PASS: missing key
+INSERT 7 -> home bucket 7
+size=1, capacity=8
+  slot 0: empty
+  slot 1: empty
+  slot 2: empty
+  slot 3: empty
+  slot 4: empty
+  slot 5: empty
+  slot 6: empty
+  slot 7: 7=v7
+INSERT 15 -> home bucket 7
+size=2, capacity=8
+  slot 0: 15=v15
+  slot 1: empty
+  slot 2: empty
+  slot 3: empty
+  slot 4: empty
+  slot 5: empty
+  slot 6: empty
+  slot 7: 7=v7
+INSERT 23 -> home bucket 7
+size=3, capacity=8
+  slot 0: 15=v15
+  slot 1: 23=v23
+  slot 2: empty
+  slot 3: empty
+  slot 4: empty
+  slot 5: empty
+  slot 6: empty
+  slot 7: 7=v7
+PASS: colliding keys remain retrievable
+PASS: linear probing wraps from slot 7 to slots 0 and 1
+PASS: duplicate key updates value without adding a key
+size=2, capacity=8
+  slot 0: 23=v23
+  slot 1: empty
+  slot 2: empty
+  slot 3: empty
+  slot 4: empty
+  slot 5: empty
+  slot 6: empty
+  slot 7: 7=v7
+PASS: delete middle collision; other keys survive
+PASS: delete missing key is harmless
+PASS: null value deletes key
+PASS: delete final key
+PASS: negative hash codes including MIN_VALUE
+PASS: put rejects null key
+PASS: get rejects null key
+PASS: delete rejects null key
+PASS: contains rejects null key
+PASS: distinct strings with identical hashCode; equality by equals
+PASS: growth rehash: capacity=256
+PASS: all 100 values survive growth
+PASS: shrink rehash preserves remaining values
+PASS: keys iteration after deletion
+ALL 19 CHECKS PASSED
