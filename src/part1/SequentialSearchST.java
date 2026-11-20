@@ -1,7 +1,8 @@
 package part1;
 
 // Adapted from Algorithms, 4th edition, Robert Sedgewick and Kevin Wayne.
-// See SOURCES.txt for exact sources and changes.
+// Source: https://algs4.cs.princeton.edu/ (Sedgewick and Wayne).
+// Packages and separate helper files added; textbook modular hash retained.
 public class SequentialSearchST<Key, Value> {
     private int n;           // number of key-value pairs
     private ChainNode<Key, Value> first;      // the linked list of key-value pairs
